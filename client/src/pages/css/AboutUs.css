@@ -1,0 +1,33 @@
+.about-us-section {
+    padding: 3rem 0;
+  }
+  
+  .about-us-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .about-us-section .card {
+    border: none;
+  }
+  
+  .about-us-section .card img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .about-us-section .card-body {
+    background-color: white;
+    padding: 2rem;
+  }
+  
+  .about-us-section .card-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .about-us-section .card-text {
+    font-size: 1rem;
+    color: #6c757d;
+  }
+  
