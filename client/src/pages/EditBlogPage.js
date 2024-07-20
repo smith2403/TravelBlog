@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const EditBlogPage = () => {
   const [title, setTitle] = useState("");
@@ -11,18 +12,27 @@ const EditBlogPage = () => {
 
   useEffect(() => {
     const fetchBlog = async () => {
-      const res = await axios.get(`/api/blogs/${id}`);
-      setTitle(res.data.title);
-      setImageUrl(res.data.imageUrl);
-      setContent(res.data.content);
+      try {
+        const res = await axios.get(`/api/blogs/${id}`);
+        setTitle(res.data.title);
+        setImageUrl(res.data.imageUrl);
+        setContent(res.data.content);
+      } catch (error) {
+        toast.error("Failed to fetch blog details!");
+      }
     };
     fetchBlog();
   }, [id]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.put(`/api/blogs/${id}`, { title, imageUrl, content });
-    navigate(`/blogs/${id}`);
+    try {
+      await axios.put(`/api/blogs/${id}`, { title, imageUrl, content });
+      toast.success("Blog edited successfully!");
+      navigate(`/blogs/${id}`);
+    } catch (error) {
+      toast.error("Failed to edit blog!");
+    }
   };
 
   return (
@@ -52,7 +62,9 @@ const EditBlogPage = () => {
               value={imageUrl}
               onChange={(e) => setImageUrl(e.target.value)}
             />
-             {imageUrl && <img src={imageUrl} alt="Preview" className="img-fluid mt-2" />}
+            {imageUrl && (
+              <img src={imageUrl} alt="Preview" className="img-fluid mt-2" />
+            )}
           </div>
           <div className="mb-3">
             <label className="form-label">Content</label>
@@ -65,7 +77,16 @@ const EditBlogPage = () => {
             ></textarea>
           </div>
           <div className="d-flex justify-content-between">
-            <button type="button" className="btn btn-secondary" onClick={() => navigate(-1)}>
+            <button
+              type="button"
+              className="btn btn-secondary"
+              style={{
+                backgroundColor: "lightgrey",
+                border: "none",
+                color: "black",
+              }}
+              onClick={() => navigate(-1)}
+            >
               Back
             </button>
             <button type="submit" className="btn btn-primary">

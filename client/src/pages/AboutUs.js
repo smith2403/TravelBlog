@@ -1,9 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./css/AboutUs.css";
 import img1 from "../pages/images/about1.jpg";
 import img2 from "../pages/images/about2.jpg";
 const AboutUs = () => {
+  const navigate = useNavigate();
   return (
     <section className="py-3 py-md-5 py-xl-8">
       <div className="container">
@@ -74,6 +75,18 @@ const AboutUs = () => {
                   </p>
                 </div>
               </div>
+              <button
+                style={{
+                  backgroundColor: "lightgrey",
+                  border: "none",
+                  color: "black",
+                }}
+                type="button"
+                className="btn btn-secondary me-2"
+                onClick={() => navigate(-1)}
+              >
+                Back
+              </button>
             </article>
           </div>
         </div>

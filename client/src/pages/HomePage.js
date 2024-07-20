@@ -197,6 +197,7 @@ const HomePage = () => {
             <button
               className="btn btn-primary btn-lg"
               onClick={() => navigate("/new")}
+              style={{ backgroundColor: "green", border: "none" }}
             >
               Add Blog
             </button>
@@ -206,60 +207,75 @@ const HomePage = () => {
 
       {/* Services section */}
       <div className="container my-4">
-  <h2 className="text-center mb-4">Services We Provide</h2>
-  <div className="row">
-    <div className="col-md-4 mb-4 d-flex flex-column align-items-center">
-      <div className="card border-0 text-center">
-        <img
-          src={serviceImg1}
-          className="card-img-top rounded-circle"
-          alt="Personalized Travel Planning"
-          style={{ width: '150px', height: '150px', objectFit: 'cover', margin: '0 auto' }}
-        />
-        <div className="card-body">
-          <h5 className="card-title">Personalized Travel Planning</h5>
-          <p className="card-text">
-            Tailored travel plans to meet your unique preferences and budget.
-          </p>
+        <h2 className="text-center mb-4">Services We Provide</h2>
+        <div className="row">
+          <div className="col-md-4 mb-4 d-flex flex-column align-items-center">
+            <div className="card border-0 text-center">
+              <img
+                src={serviceImg1}
+                className="card-img-top rounded-circle"
+                alt="Personalized Travel Planning"
+                style={{
+                  width: "150px",
+                  height: "150px",
+                  objectFit: "cover",
+                  margin: "0 auto",
+                }}
+              />
+              <div className="card-body">
+                <h5 className="card-title">Personalized Travel Planning</h5>
+                <p className="card-text">
+                  Tailored travel plans to meet your unique preferences and
+                  budget.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-4 mb-4 d-flex flex-column align-items-center">
+            <div className="card border-0 text-center">
+              <img
+                src={serviceImg2}
+                className="card-img-top rounded-circle"
+                alt="Exclusive Travel Packages"
+                style={{
+                  width: "150px",
+                  height: "150px",
+                  objectFit: "cover",
+                  margin: "0 auto",
+                }}
+              />
+              <div className="card-body">
+                <h5 className="card-title">Exclusive Travel Packages</h5>
+                <p className="card-text">
+                  Unique travel packages designed for an unforgettable
+                  experience.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-4 mb-4 d-flex flex-column align-items-center">
+            <div className="card border-0 text-center">
+              <img
+                src={serviceImg3}
+                className="card-img-top rounded-circle"
+                alt="24/7 Customer Support"
+                style={{
+                  width: "150px",
+                  height: "150px",
+                  objectFit: "cover",
+                  margin: "0 auto",
+                }}
+              />
+              <div className="card-body">
+                <h5 className="card-title">24/7 Customer Support</h5>
+                <p className="card-text">
+                  Round-the-clock support to assist you with your travel needs.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div className="col-md-4 mb-4 d-flex flex-column align-items-center">
-      <div className="card border-0 text-center">
-        <img
-          src={serviceImg2}
-          className="card-img-top rounded-circle"
-          alt="Exclusive Travel Packages"
-          style={{ width: '150px', height: '150px', objectFit: 'cover', margin: '0 auto' }}
-        />
-        <div className="card-body">
-          <h5 className="card-title">Exclusive Travel Packages</h5>
-          <p className="card-text">
-            Unique travel packages designed for an unforgettable experience.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div className="col-md-4 mb-4 d-flex flex-column align-items-center">
-      <div className="card border-0 text-center">
-        <img
-          src={serviceImg3}
-          className="card-img-top rounded-circle"
-          alt="24/7 Customer Support"
-          style={{ width: '150px', height: '150px', objectFit: 'cover', margin: '0 auto' }}
-        />
-        <div className="card-body">
-          <h5 className="card-title">24/7 Customer Support</h5>
-          <p className="card-text">
-            Round-the-clock support to assist you with your travel needs.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
     </>
   );
 };

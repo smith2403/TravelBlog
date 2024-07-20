@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const ShowBlogPage = () => {
   const [blog, setBlog] = useState(null);
@@ -10,15 +12,24 @@ const ShowBlogPage = () => {
 
   useEffect(() => {
     const fetchBlog = async () => {
-      const res = await axios.get(`/api/blogs/${id}`);
-      setBlog(res.data);
+      try {
+        const res = await axios.get(`/api/blogs/${id}`);
+        setBlog(res.data);
+      } catch (error) {
+        toast.error("Failed to fetch blog details");
+      }
     };
     fetchBlog();
   }, [id]);
 
   const handleDelete = async () => {
-    await axios.delete(`/api/blogs/${id}`);
-    navigate("/");
+    try {
+      await axios.delete(`/api/blogs/${id}`);
+      toast.success("Blog deleted successfully!");
+      navigate("/blogs"); // Navigate back to the blogs list
+    } catch (error) {
+      toast.error("Failed to delete blog");
+    }
   };
 
   if (!blog) return <p>Loading...</p>;
@@ -38,10 +49,30 @@ const ShowBlogPage = () => {
       )}
       <p className="text-center">{blog.content}</p>
       <div className="text-center">
-        <Link to={`/blogs/edit/${id}`} className="btn btn-primary m-2">
+        <button
+          type="button"
+          className="btn me-2"
+          onClick={() => navigate(-1)}
+          style={{
+            backgroundColor: "lightgrey",
+            border: "none",
+            color: "black",
+          }}
+        >
+          Back
+        </button>
+        <Link
+          to={`/blogs/edit/${id}`}
+          className="btn m-2"
+          style={{ backgroundColor: "#007bff", border: "none", color: "white" }}
+        >
           Edit
         </Link>
-        <button onClick={handleDelete} className="btn btn-danger m-2">
+        <button
+          onClick={handleDelete}
+          className="btn m-2"
+          style={{ backgroundColor: "red", border: "none", color: "white" }}
+        >
           Delete
         </button>
       </div>
