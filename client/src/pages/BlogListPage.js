@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./css/BlogListPage.css";
 
 const BlogListPage = () => {
+  const navigate = useNavigate();
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
@@ -34,7 +35,18 @@ const BlogListPage = () => {
           </div>
         ))}
       </div>
+      <div className="row">
+          <div className="col-12 text-center mt-4">
+            <button
+              className="btn btn-primary btn-lg"
+              onClick={() => navigate("/new")}
+            >
+              Create New Blog
+            </button>
+          </div>
+        </div>
     </div>
+    
   );
 };
 

@@ -10,8 +10,8 @@ import ShowBlogPage from "./pages/ShowBlogPage";
 import EditBlogPage from "./pages/EditBlogPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import AboutUs from "./components/AboutUs";
-import ContactUs from "./components/ContactUs";
+import AboutUs from "./pages/AboutUs";
+import ContactUs from "./pages/ContactUs";
 
 function App() {
   return (

@@ -2,7 +2,7 @@ import React from 'react'
 import img1 from "../pages/images/1.jpg";
 import img2 from "../pages/images/2.webp";
 import img3 from "../pages/images/3.jpg";
-
+import '../pages/css/Carousel.css';
 const Carousel = () => {
   return (
     <div>
@@ -49,7 +49,7 @@ const Carousel = () => {
           <div className="carousel-item">
             <img src={img3} className="d-block w-100" alt="Slide 3" />
             <div className="carousel-caption d-none d-md-block">
-              <h1>Beautiful Places in BRAZIL</h1>
+              <h1>Beautiful sunset at the beach</h1>
             </div>
           </div>
         </div>

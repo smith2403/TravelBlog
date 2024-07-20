@@ -55,7 +55,7 @@ const NewBlogPage = () => {
         <label htmlFor="floatingContent">Content</label>
       </div>
       <div className="d-flex justify-content-center">
-        <button type="button" className="btn btn-secondary me-2" onClick={() => navigate('/blogs')}>
+        <button type="button" className="btn btn-secondary me-2" onClick={() => navigate(-1)}>
           Back
         </button>
         <button type="submit" className="btn btn-primary">
